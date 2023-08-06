@@ -1,0 +1,4 @@
+in the directory with a necessary docker-compose yml-file run the next command (cmd\bash\etc):
+docker-compose -p {project_name} up -d
+or
+docker-compose -p {project_name} -f {filename} up -d

@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+    postgres-db:
+        image: postgres:latest
+        container_name: postgres_latest_on_06.08.2023
+        ports:
+            - '8013:5432'
+        environment:
+            POSTGRES_USER: admin
+            POSTGRES_PASSWORD: admin
+            POSTGRES_DB: queryplan_db   
+        restart: unless-stopped #always      
+    #camunda:
+        #image: camunda/camunda-bpm-platform
+        #container_name: camunda_bpm
+        #ports:
+        #    - '8051:8080'
+        #environment:
+        #    DB_DRIVER: org.postgresql.Driver
+        #    DB_URL: jdbc:postgresql://postgres-db:5432/camunda_db?autoReconnect=true
+        #    DB_USERNAME: camunda
+        #    DB_PASSWORD: camunda
+        #depends_on:
+        #    - 'postgres-db'
+            

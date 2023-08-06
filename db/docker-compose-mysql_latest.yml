@@ -1,0 +1,26 @@
+#from https://medium.com/@chrischuck35/how-to-create-a-mysql-instance-with-docker-compose-1598f3cc1bee#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjkxMWUzOWUyNzkyOGFlOWYxZTlkMWUyMTY0NmRlOTJkMTkzNTFiNDQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ0OTY1NDU5Njc0Mzk1MDY4MDQiLCJlbWFpbCI6InRva21hbnNpdGVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5iZiI6MTY5MTMyODI0NCwibmFtZSI6InZldGFsIHZldGFsYWxpZW4iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUFjSFR0YzliRTI1WlpUVTBtQWhvc1g1TnpQM1ROSl8yd2RmMXh4MDRPUVdldWlhPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6InZldGFsIiwiZmFtaWx5X25hbWUiOiJ2ZXRhbGFsaWVuIiwibG9jYWxlIjoicnUiLCJpYXQiOjE2OTEzMjg1NDQsImV4cCI6MTY5MTMzMjE0NCwianRpIjoiMGU3MDM1NTE2NzQ1Y2JjNjRiNjZlYjM5MzYzYTVhZDUyOGMxMzRhZiJ9.PCsWDQeRuI9zCm9cOGLEcEI-LplIaHnBxjBlsDP6Cs_i7QfHKclVfXeFJTrH5oUZeCY0eAlkH827nYOGMOmQBXtwnjpoCg7432qzYPPFvvNo2BDC5adWWBjYl4JbsrwwS_CoCPbwHKYdTj9uHfjmrZ4mG9crDkEb_Ad7sJF_iH47-KhpqP95ZF7-NjN5C4bM2qXuu9iW2IQBLNJKJBhnRODjuE960DLU4w9ibX78jI8vXVgI5ntjZBJ_jH2PXBAhdLGtDGe65ews_LhbpYy25mQMP6rJ0xqP9LrZ71C2HFwHKt5ksiIk2U8_XN00MDtT2lp0lRBP2jF9nPp7yIJmFQ
+version: '3.3'
+services:
+  db:
+    image: mysql:latest
+    restart: unless-stopped #always
+    environment:
+      MYSQL_DATABASE: 'test_db'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'admin'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'admin'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'rootadmin'
+    ports:
+      # <Port exposed> : <MySQL Port running inside container>
+      - '8006:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
+    #volumes:
+    #  - my-db:/var/lib/mysql
+# Names our volume
+#volumes:
+  #my-db:
