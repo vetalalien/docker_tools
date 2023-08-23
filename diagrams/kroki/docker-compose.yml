@@ -30,4 +30,3 @@ services:
     #image: yuzutech/kroki-wireviz
     #ports:
       #- "8006:8006"
-    restart: unless-stopped #always
