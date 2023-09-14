@@ -4,7 +4,7 @@ services:
     image: yuzutech/kroki
     environment:
       #- KROKI_MERMAID_HOST=mermaid
-      - KROKI_BPMN_HOST=bpmn
+      #- KROKI_BPMN_HOST=bpmn
       #- KROKI_EXCALIDRAW_HOST=excalidraw
       #- KROKI_WIREVIZ_HOST=wireviz
       - KROKI_SAFE_MODE=UNSAFE
@@ -15,13 +15,13 @@ services:
     #image: yuzutech/kroki-mermaid
     #ports:
       #- "8002:8002"
-  bpmn:
-    image: yuzutech/kroki-bpmn
-    ports:
-      - "8003:8003"
-    restart: unless-stopped #always
-    environment:
-      - KROKI_SAVE_MODE=UNSAFE
+  #bpmn:
+    #image: yuzutech/kroki-bpmn
+    #ports:
+      #- "8003:8003"
+    #restart: unless-stopped #always
+    #environment:
+      #- KROKI_SAVE_MODE=UNSAFE
   #excalidraw:
     #image: yuzutech/kroki-excalidraw
     #ports:
