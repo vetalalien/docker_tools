@@ -1,0 +1,12 @@
+version: "3"
+services:
+  core:
+    image: swaggerapi/swagger-ui
+    ports: #8246
+      - "8080:8080"
+    environment:
+      - SWAGGER_JSON=/var/swagger/TcsServiceRest.json
+    restart: unless-stopped #always
+    volumes:
+    # указываем не виндовый путь, а тот, который на OS, выполняемой в WSL (где, собственно, запущен docker)
+      - '/mnt/c/Users/vit.v.tarasov/Documents/docker_tools/API/TcsService:/var/swagger'
